@@ -52,9 +52,9 @@ void *count2_thr(void * arg) {
     int rc;
 
     while (true) {
-        rc = sem_wait(&lcd_sem);
-        assert(rc == 0);
         rc = sem_wait(&compute_sem);
+        assert(rc == 0);
+        rc = sem_wait(&lcd_sem);
         assert(rc == 0);
 
         count2 += 1;
